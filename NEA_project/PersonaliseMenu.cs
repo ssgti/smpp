@@ -16,6 +16,17 @@ namespace NEA_project
         {
             InitializeComponent();
             // updateList();
+            initList();
+        }
+
+        private void initList() // arbritrary test data generator
+        {
+            selectionList.BeginUpdate();
+            for(int i = 0; i < 5; i++)
+            {
+                selectionList.Items.Add("Item " + i);
+            }
+            selectionList.EndUpdate();
         }
 
         private void updateList()
@@ -54,9 +65,9 @@ namespace NEA_project
             selectedList.BeginUpdate();
             do
             {
-                for(int x = 0; x < selectedList.Items.Count; i++) // checks if the item to be added is already in selectedList
+                for(int x = 0; x < selectedList.Items.Count; x++) // checks if the item to be added is already in selectedList
                 {
-                    if(selectionList.SelectedItems[i] == selectedList.Items[i])
+                    if(selectionList.SelectedItems[i] == selectedList.Items[x])
                     {
                         exists = true;
                     }
@@ -67,7 +78,7 @@ namespace NEA_project
                 }
                 exists = false;
                 i++;
-            } while (i <= selectionList.SelectedItems.Count); // do this for every selected item in selectionList
+            } while (i < selectionList.SelectedItems.Count); // do this for every selected item in selectionList
             selectedList.EndUpdate();
         }
 

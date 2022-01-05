@@ -31,26 +31,28 @@ namespace NEA_project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonaliseMenu));
             this.selectBox = new System.Windows.Forms.GroupBox();
+            this.selectionList = new System.Windows.Forms.ListBox();
             this.resetBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.selectedList = new System.Windows.Forms.ListBox();
-            this.selectionList = new System.Windows.Forms.CheckedListBox();
             this.predictLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.predictLabel2 = new System.Windows.Forms.Label();
             this.selectBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // selectBox
             // 
+            this.selectBox.Controls.Add(this.predictLabel2);
+            this.selectBox.Controls.Add(this.selectionList);
             this.selectBox.Controls.Add(this.resetBtn);
             this.selectBox.Controls.Add(this.removeBtn);
             this.selectBox.Controls.Add(this.addBtn);
             this.selectBox.Controls.Add(this.selectedList);
-            this.selectBox.Controls.Add(this.selectionList);
             this.selectBox.Controls.Add(this.predictLabel);
             this.selectBox.Location = new System.Drawing.Point(12, 51);
             this.selectBox.Name = "selectBox";
@@ -59,9 +61,20 @@ namespace NEA_project
             this.selectBox.TabStop = false;
             this.selectBox.Text = "Select Your Predictions";
             // 
+            // selectionList
+            // 
+            this.selectionList.FormattingEnabled = true;
+            this.selectionList.ItemHeight = 15;
+            this.selectionList.Location = new System.Drawing.Point(6, 59);
+            this.selectionList.Name = "selectionList";
+            this.selectionList.ScrollAlwaysVisible = true;
+            this.selectionList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.selectionList.Size = new System.Drawing.Size(290, 229);
+            this.selectionList.TabIndex = 7;
+            // 
             // resetBtn
             // 
-            this.resetBtn.Location = new System.Drawing.Point(302, 269);
+            this.resetBtn.Location = new System.Drawing.Point(303, 269);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(75, 23);
             this.resetBtn.TabIndex = 6;
@@ -91,27 +104,19 @@ namespace NEA_project
             // 
             // selectedList
             // 
+            this.selectedList.BackColor = System.Drawing.SystemColors.Menu;
+            this.selectedList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.selectedList.FormattingEnabled = true;
             this.selectedList.ItemHeight = 15;
-            this.selectedList.Location = new System.Drawing.Point(384, 18);
+            this.selectedList.Location = new System.Drawing.Point(384, 29);
             this.selectedList.Name = "selectedList";
-            this.selectedList.ScrollAlwaysVisible = true;
-            this.selectedList.Size = new System.Drawing.Size(210, 274);
+            this.selectedList.Size = new System.Drawing.Size(210, 255);
             this.selectedList.TabIndex = 3;
-            // 
-            // selectionList
-            // 
-            this.selectionList.FormattingEnabled = true;
-            this.selectionList.Location = new System.Drawing.Point(6, 54);
-            this.selectionList.Name = "selectionList";
-            this.selectionList.ScrollAlwaysVisible = true;
-            this.selectionList.Size = new System.Drawing.Size(290, 238);
-            this.selectionList.TabIndex = 2;
             // 
             // predictLabel
             // 
             this.predictLabel.AutoSize = true;
-            this.predictLabel.Location = new System.Drawing.Point(6, 30);
+            this.predictLabel.Location = new System.Drawing.Point(6, 41);
             this.predictLabel.Name = "predictLabel";
             this.predictLabel.Size = new System.Drawing.Size(275, 15);
             this.predictLabel.TabIndex = 1;
@@ -145,6 +150,15 @@ namespace NEA_project
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             // 
+            // predictLabel2
+            // 
+            this.predictLabel2.AutoSize = true;
+            this.predictLabel2.Location = new System.Drawing.Point(384, 11);
+            this.predictLabel2.Name = "predictLabel2";
+            this.predictLabel2.Size = new System.Drawing.Size(55, 15);
+            this.predictLabel2.TabIndex = 8;
+            this.predictLabel2.Text = "Your List:";
+            // 
             // PersonaliseMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -173,6 +187,7 @@ namespace NEA_project
         private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.ListBox selectedList;
-        private System.Windows.Forms.CheckedListBox selectionList;
+        private System.Windows.Forms.ListBox selectionList;
+        private System.Windows.Forms.Label predictLabel2;
     }
 }
