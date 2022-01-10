@@ -15,6 +15,23 @@ namespace NEA_project
         public MainMenu()
         {
             InitializeComponent();
+            // displayPredictions();
+            initList();
+        }
+
+        private void initList()
+        {
+            predictBox.BeginUpdate();
+            for (int i = 0; i < 50; i++)
+            {
+                predictBox.Items.Add("Item " + (i + 1));
+            }
+            predictBox.EndUpdate();
+        }
+
+        private void displayPredictions()
+        {
+            // display predictions
         }
 
         private void settBtn_Click(object sender, EventArgs e)

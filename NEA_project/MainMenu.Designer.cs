@@ -83,8 +83,6 @@ namespace NEA_project
             // 
             this.predictBox.FormattingEnabled = true;
             this.predictBox.ItemHeight = 15;
-            this.predictBox.Items.AddRange(new object[] {
-            "[Predictions go here]"});
             this.predictBox.Location = new System.Drawing.Point(7, 23);
             this.predictBox.Name = "predictBox";
             this.predictBox.ScrollAlwaysVisible = true;

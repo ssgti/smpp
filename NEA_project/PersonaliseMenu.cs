@@ -22,9 +22,9 @@ namespace NEA_project
         private void initList() // arbritrary test data generator
         {
             selectionList.BeginUpdate();
-            for(int i = 0; i < 5; i++)
+            for(int i = 0; i < 50; i++)
             {
-                selectionList.Items.Add("Item " + i);
+                selectionList.Items.Add("Item " + (i + 1));
             }
             selectionList.EndUpdate();
         }
