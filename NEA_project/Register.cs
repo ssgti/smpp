@@ -57,15 +57,20 @@ namespace NEA_project
 
 
             // connect to database
+
+            string query = "insert into Users(username, password) values(" + username + ", " + password + ")";
+            SQLOperations.sqlInsert(query);
+
+            /*
             string connStr = "server=127.0.0.1;user=snoop;database=mydb;port=3306;password=snoopin321";
             MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
                 conn.Open();
-                /*
+                
                 string sql = "insert into Users(username, password) values(" + username + ", " + password + ")";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                */
+                
                 MySqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "insert into Users(username, password) values(?username, ?password)";
                 comm.Parameters.Add("?username", MySqlDbType.VarChar).Value = username;
@@ -77,6 +82,7 @@ namespace NEA_project
                 MessageBox.Show(ex.ToString(), "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conn.Close();
+            */
         }
     }
 }

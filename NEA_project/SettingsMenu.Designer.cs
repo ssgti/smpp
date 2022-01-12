@@ -34,6 +34,7 @@ namespace NEA_project
             this.settingsBox = new System.Windows.Forms.GroupBox();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.aboutBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,11 +74,21 @@ namespace NEA_project
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
             // 
+            // aboutBtn
+            // 
+            this.aboutBtn.Location = new System.Drawing.Point(375, 12);
+            this.aboutBtn.Name = "aboutBtn";
+            this.aboutBtn.Size = new System.Drawing.Size(75, 23);
+            this.aboutBtn.TabIndex = 10;
+            this.aboutBtn.Text = "About";
+            this.aboutBtn.UseVisualStyleBackColor = true;
+            // 
             // SettingsMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 361);
+            this.Controls.Add(this.aboutBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.settingsBox);
@@ -95,5 +106,6 @@ namespace NEA_project
         private System.Windows.Forms.GroupBox settingsBox;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button aboutBtn;
     }
 }

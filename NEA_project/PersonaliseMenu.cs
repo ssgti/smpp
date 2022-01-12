@@ -15,8 +15,8 @@ namespace NEA_project
         public PersonaliseMenu()
         {
             InitializeComponent();
-            // updateList();
-            initList();
+            updateList();
+            // initList();
         }
 
         private void initList() // arbritrary test data generator
@@ -33,28 +33,8 @@ namespace NEA_project
         {
             // fill selection list from database
 
-            string connStr = "server=127.0.0.1;user=snoop;database=mydb;port=3306;password=snoopin321";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-
-                string sql = "select name from Financial";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                
-                selectionList.BeginUpdate();
-                while (rdr.Read())
-                {
-                    selectionList.Items.Add(rdr.ToString());
-                }
-                rdr.Close();
-                selectionList.EndUpdate();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string query = "select name from Financial"; // calls a function in SQLOperations that performs a select operation
+            SQLOperations.sqlSelect(query);             //  on the database using the query specified in the string
         }
 
         private void addBtn_Click(object sender, EventArgs e)
