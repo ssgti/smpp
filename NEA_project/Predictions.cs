@@ -71,7 +71,7 @@ namespace NEA_project
                 change = "No change"; // the chance of this is absolutely tiny but i need to prepare anyway
             }
 
-            return item + ": " + change + " by " + percent + " to " + value + ", Change of " + difference; // prediction string
+            return item + ": " + change + " by " + percent + " to " + value + ", Change of " + difference; // prediction string to be returned
         }
     }
 }
