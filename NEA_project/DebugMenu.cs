@@ -49,6 +49,7 @@ namespace NEA_project
 
         private void connectBtn_Click(object sender, EventArgs e)
         {
+            /*
             string connStr = "server=127.0.0.1;user=snoop;database=mydb;port=3306;password=snoopin321";
             MySqlConnection conn = new MySqlConnection(connStr);
             try
@@ -61,6 +62,7 @@ namespace NEA_project
                 DialogResult result = MessageBox.Show(ex.ToString(), "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conn.Close();
+            */
         }
 
         private void configBtn_Click(object sender, EventArgs e)

@@ -30,42 +30,9 @@ namespace NEA_project
             else
             {
                 // database connection
-                string connStr = "server=127.0.0.1;user=snoop;database=mydb;port=3306;password=snoopin321";
-                MySqlConnection conn = new MySqlConnection(connStr);
-                try
-                {
-                    conn.Open();
 
-                    string sql = "select userID from Users where username = " + username + " and password = " + password;
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-
-                    while (rdr.Read())
-                    {
-                        MessageBox.Show(rdr[0] + " -- " + rdr[1]);
-                    }
-                    rdr.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                conn.Close();
+                SQLOperations.sqlSelect("select userID from Users where username = " + username + " and password = " + password);
             }
-
-
-
-            /*
-            if(username == "test" && password == "1234")
-            {
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.Show();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect user details entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            */
         }
 
         private void regBtn_Click(object sender, EventArgs e)

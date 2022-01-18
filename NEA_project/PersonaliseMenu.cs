@@ -31,8 +31,7 @@ namespace NEA_project
         {
             // fill selection list from database
 
-            string query = "select name from Financial"; // calls a function in SQLOperations that performs a select operation
-            SQLOperations.sqlSelect(query);             //  on the database using the query specified in the string
+            SQLOperations.sqlSelect("select name from Financial");
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -89,8 +88,7 @@ namespace NEA_project
         {
             // upload user list to database
 
-            string query = "";
-            SQLOperations.sqlInsert(query);
+            SQLOperations.sqlInsert("");
         }
     }
 }
