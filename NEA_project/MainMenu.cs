@@ -31,7 +31,13 @@ namespace NEA_project
 
         private void displayPredictions()
         {
-            // display predictions
+            List<string> selections = SQLOperations.sqlSelect("select name from Selections where userID = ");
+            predictBox.BeginUpdate();
+            for (int i = 0; i < selections.Count; i++)
+            {
+                predictBox.Items.Add(Predictions.getPredicts(selections[i]));
+            }
+            predictBox.EndUpdate();
         }
 
         private void settBtn_Click(object sender, EventArgs e)

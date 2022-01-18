@@ -5,8 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data;
-using MySql.Data.MySqlClient;
 
 namespace NEA_project
 {
@@ -19,7 +17,7 @@ namespace NEA_project
             // initList();
         }
 
-        private void initList() // arbritrary test data generator
+        private void initList() // arbritrary test data generator IT WORKS YOU DON'T NEED THIs
         {
             selectionList.BeginUpdate();
             for(int i = 0; i < 50; i++)
@@ -90,6 +88,9 @@ namespace NEA_project
         private void saveBtn_Click(object sender, EventArgs e)
         {
             // upload user list to database
+
+            string query = "";
+            SQLOperations.sqlInsert(query);
         }
     }
 }

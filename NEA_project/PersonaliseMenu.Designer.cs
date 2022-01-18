@@ -31,6 +31,7 @@ namespace NEA_project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonaliseMenu));
             this.selectBox = new System.Windows.Forms.GroupBox();
+            this.predictLabel2 = new System.Windows.Forms.Label();
             this.selectionList = new System.Windows.Forms.ListBox();
             this.resetBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@ namespace NEA_project
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
-            this.predictLabel2 = new System.Windows.Forms.Label();
             this.selectBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,15 @@ namespace NEA_project
             this.selectBox.TabIndex = 4;
             this.selectBox.TabStop = false;
             this.selectBox.Text = "Select Your Predictions";
+            // 
+            // predictLabel2
+            // 
+            this.predictLabel2.AutoSize = true;
+            this.predictLabel2.Location = new System.Drawing.Point(384, 11);
+            this.predictLabel2.Name = "predictLabel2";
+            this.predictLabel2.Size = new System.Drawing.Size(55, 15);
+            this.predictLabel2.TabIndex = 8;
+            this.predictLabel2.Text = "Your List:";
             // 
             // selectionList
             // 
@@ -127,7 +136,7 @@ namespace NEA_project
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(206, 33);
+            this.pictureBox1.Size = new System.Drawing.Size(210, 35);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -149,15 +158,6 @@ namespace NEA_project
             this.cancelBtn.TabIndex = 7;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
-            // 
-            // predictLabel2
-            // 
-            this.predictLabel2.AutoSize = true;
-            this.predictLabel2.Location = new System.Drawing.Point(384, 11);
-            this.predictLabel2.Name = "predictLabel2";
-            this.predictLabel2.Size = new System.Drawing.Size(55, 15);
-            this.predictLabel2.TabIndex = 8;
-            this.predictLabel2.Text = "Your List:";
             // 
             // PersonaliseMenu
             // 
