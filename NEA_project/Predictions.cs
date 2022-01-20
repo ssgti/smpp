@@ -35,7 +35,7 @@ namespace NEA_project
         private static double extrapolate(double[,] d, int p) // extrapolates data
         {
              // linear extrapolation formula - based on plotting data on a graph, where the
-            // gradient represents a trend and extrapolating it can predict future performance
+            //  gradient represents a trend and extrapolating it can predict future performance
 
             double value = d[0, 1] + (p - d[0, 0]) / (d[1, 0] - d[0, 0]) * (d[1, 1] - d[0, 1]);
             return value;
@@ -48,8 +48,8 @@ namespace NEA_project
             double factor = getResponseFactor(item);
             
             // calculate predictions
-            int period = 4; // (arbritrary) period that predictions are for
-            double[,] dataset = {{ 1, averages.Item1 }, { 2, averages.Item2 }};
+            int period = 5; // (arbritrary) period that predictions are for
+            double[,] dataset = {{ 2, averages.Item1 }, { 3, averages.Item2 }};
             double value = extrapolate(dataset, period) * factor; // extrapolates data and multiplies by response factor
 
             // calculate change direction and difference
@@ -66,7 +66,7 @@ namespace NEA_project
             {
                 change = "Decrease";
             }
-            else
+            else // (value == current)
             {
                 change = "No change"; // the chance of this is absolutely tiny but i need to prepare anyway
             }
