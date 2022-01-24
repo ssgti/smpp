@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NEA_project
@@ -31,12 +24,15 @@ namespace NEA_project
 
         private void displayPredictions()
         {
-            List<string> selections = SQLOperations.sqlSelect("select name from Selections where userID = ");
+            // List<string> selections = SQLOperations.sqlSelect("select name from Selections where userID = ");
             predictBox.BeginUpdate();
+            /*
             for (int i = 0; i < selections.Count; i++)
             {
                 predictBox.Items.Add(Predictions.getPredicts(selections[i]));
             }
+            */
+            ScraperBot.runScraper();
             predictBox.EndUpdate();
         }
 
