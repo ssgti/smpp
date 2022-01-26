@@ -39,29 +39,5 @@ namespace NEA_project
             AboutMenu about = new AboutMenu();
             about.Show();
         }
-
-        private void connectBtn_Click(object sender, EventArgs e)
-        {
-            /*
-            string connStr = "server=127.0.0.1;user=snoop;database=mydb;port=3306;password=snoopin321";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-                MessageBox.Show("Connection Successful", "Connect to Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch(Exception ex)
-            {
-                DialogResult result = MessageBox.Show(ex.ToString(), "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            conn.Close();
-            */
-        }
-
-        private void configBtn_Click(object sender, EventArgs e)
-        {
-             // menu for configuring the database connection string
-            //  low priority so i'll do it later
-        }
     }
 }
