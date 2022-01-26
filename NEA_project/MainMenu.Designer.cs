@@ -36,8 +36,10 @@ namespace NEA_project
             this.predictGroupBox = new System.Windows.Forms.GroupBox();
             this.predictBox = new System.Windows.Forms.ListBox();
             this.newsGroupBox = new System.Windows.Forms.GroupBox();
+            this.articleBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.predictGroupBox.SuspendLayout();
+            this.newsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // logoBox
@@ -81,22 +83,35 @@ namespace NEA_project
             // 
             // predictBox
             // 
+            this.predictBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.predictBox.FormattingEnabled = true;
-            this.predictBox.ItemHeight = 15;
+            this.predictBox.ItemHeight = 21;
             this.predictBox.Location = new System.Drawing.Point(7, 23);
             this.predictBox.Name = "predictBox";
             this.predictBox.ScrollAlwaysVisible = true;
-            this.predictBox.Size = new System.Drawing.Size(585, 349);
+            this.predictBox.Size = new System.Drawing.Size(585, 340);
             this.predictBox.TabIndex = 0;
             // 
             // newsGroupBox
             // 
+            this.newsGroupBox.Controls.Add(this.articleBox);
             this.newsGroupBox.Location = new System.Drawing.Point(617, 50);
             this.newsGroupBox.Name = "newsGroupBox";
             this.newsGroupBox.Size = new System.Drawing.Size(155, 387);
             this.newsGroupBox.TabIndex = 4;
             this.newsGroupBox.TabStop = false;
             this.newsGroupBox.Text = "News Feed";
+            // 
+            // articleBox
+            // 
+            this.articleBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.articleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.articleBox.FormattingEnabled = true;
+            this.articleBox.ItemHeight = 15;
+            this.articleBox.Location = new System.Drawing.Point(7, 23);
+            this.articleBox.Name = "articleBox";
+            this.articleBox.Size = new System.Drawing.Size(142, 345);
+            this.articleBox.TabIndex = 0;
             // 
             // MainMenu
             // 
@@ -112,6 +127,7 @@ namespace NEA_project
             this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).EndInit();
             this.predictGroupBox.ResumeLayout(false);
+            this.newsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -124,6 +140,7 @@ namespace NEA_project
         private System.Windows.Forms.GroupBox predictGroupBox;
         private System.Windows.Forms.ListBox predictBox;
         private System.Windows.Forms.GroupBox newsGroupBox;
+        private System.Windows.Forms.ListBox articleBox;
     }
 }
 

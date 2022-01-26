@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NEA_project
@@ -9,31 +10,24 @@ namespace NEA_project
         {
             InitializeComponent();
             // displayPredictions();
-            initList();
         }
 
-        private void initList()
+        private void displayPredictions() // run the web scraper
         {
             predictBox.BeginUpdate();
-            for (int i = 0; i < 50; i++)
-            {
-                predictBox.Items.Add("Item " + (i + 1));
-            }
-            predictBox.EndUpdate();
-        }
-
-        private void displayPredictions()
-        {
-            // List<string> selections = SQLOperations.sqlSelect("select name from Selections where userID = ");
-            predictBox.BeginUpdate();
-            /*
-            for (int i = 0; i < selections.Count; i++)
-            {
-                predictBox.Items.Add(Predictions.getPredicts(selections[i]));
-            }
-            */
             ScraperBot.runScraper();
             predictBox.EndUpdate();
+        }
+
+        public void initNewsFeed(List<string> titles) // fill the news feed with articles used by web scraper
+        {
+            // this is not called anywhere yet
+            articleBox.BeginUpdate();
+            for (int i = 0; i < titles.Count; i++)
+            {
+                articleBox.Items.Add(titles[i]);
+            }
+            articleBox.EndUpdate();
         }
 
         private void aboutBtn_Click(object sender, EventArgs e)
