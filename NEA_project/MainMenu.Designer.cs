@@ -31,7 +31,7 @@ namespace NEA_project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.logoBox = new System.Windows.Forms.PictureBox();
-            this.settBtn = new System.Windows.Forms.Button();
+            this.aboutBtn = new System.Windows.Forms.Button();
             this.persBtn = new System.Windows.Forms.Button();
             this.predictGroupBox = new System.Windows.Forms.GroupBox();
             this.predictBox = new System.Windows.Forms.ListBox();
@@ -49,15 +49,15 @@ namespace NEA_project
             this.logoBox.TabIndex = 0;
             this.logoBox.TabStop = false;
             // 
-            // settBtn
+            // aboutBtn
             // 
-            this.settBtn.Location = new System.Drawing.Point(697, 12);
-            this.settBtn.Name = "settBtn";
-            this.settBtn.Size = new System.Drawing.Size(75, 23);
-            this.settBtn.TabIndex = 1;
-            this.settBtn.Text = "Settings";
-            this.settBtn.UseVisualStyleBackColor = true;
-            this.settBtn.Click += new System.EventHandler(this.settBtn_Click);
+            this.aboutBtn.Location = new System.Drawing.Point(697, 12);
+            this.aboutBtn.Name = "aboutBtn";
+            this.aboutBtn.Size = new System.Drawing.Size(75, 23);
+            this.aboutBtn.TabIndex = 1;
+            this.aboutBtn.Text = "About";
+            this.aboutBtn.UseVisualStyleBackColor = true;
+            this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
             // 
             // persBtn
             // 
@@ -106,7 +106,7 @@ namespace NEA_project
             this.Controls.Add(this.newsGroupBox);
             this.Controls.Add(this.predictGroupBox);
             this.Controls.Add(this.persBtn);
-            this.Controls.Add(this.settBtn);
+            this.Controls.Add(this.aboutBtn);
             this.Controls.Add(this.logoBox);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
@@ -119,7 +119,7 @@ namespace NEA_project
         #endregion
 
         private System.Windows.Forms.PictureBox logoBox;
-        private System.Windows.Forms.Button settBtn;
+        private System.Windows.Forms.Button aboutBtn;
         private System.Windows.Forms.Button persBtn;
         private System.Windows.Forms.GroupBox predictGroupBox;
         private System.Windows.Forms.ListBox predictBox;

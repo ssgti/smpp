@@ -37,7 +37,7 @@ namespace NEA_project
             this.persBtn = new System.Windows.Forms.Button();
             this.mainBtn = new System.Windows.Forms.Button();
             this.regBtn = new System.Windows.Forms.Button();
-            this.settBtn = new System.Windows.Forms.Button();
+            this.aboutBtn = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.debugBox.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +51,7 @@ namespace NEA_project
             this.debugBox.Controls.Add(this.persBtn);
             this.debugBox.Controls.Add(this.mainBtn);
             this.debugBox.Controls.Add(this.regBtn);
-            this.debugBox.Controls.Add(this.settBtn);
+            this.debugBox.Controls.Add(this.aboutBtn);
             this.debugBox.Controls.Add(this.loginBtn);
             this.debugBox.Location = new System.Drawing.Point(13, 13);
             this.debugBox.Name = "debugBox";
@@ -128,15 +128,15 @@ namespace NEA_project
             this.regBtn.UseVisualStyleBackColor = true;
             this.regBtn.Click += new System.EventHandler(this.regBtn_Click);
             // 
-            // settBtn
+            // aboutBtn
             // 
-            this.settBtn.Location = new System.Drawing.Point(88, 138);
-            this.settBtn.Name = "settBtn";
-            this.settBtn.Size = new System.Drawing.Size(75, 23);
-            this.settBtn.TabIndex = 1;
-            this.settBtn.Text = "Settings";
-            this.settBtn.UseVisualStyleBackColor = true;
-            this.settBtn.Click += new System.EventHandler(this.settBtn_Click);
+            this.aboutBtn.Location = new System.Drawing.Point(88, 138);
+            this.aboutBtn.Name = "aboutBtn";
+            this.aboutBtn.Size = new System.Drawing.Size(75, 23);
+            this.aboutBtn.TabIndex = 1;
+            this.aboutBtn.Text = "About";
+            this.aboutBtn.UseVisualStyleBackColor = true;
+            this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
             // 
             // loginBtn
             // 
@@ -168,7 +168,7 @@ namespace NEA_project
         private System.Windows.Forms.Button persBtn;
         private System.Windows.Forms.Button mainBtn;
         private System.Windows.Forms.Button regBtn;
-        private System.Windows.Forms.Button settBtn;
+        private System.Windows.Forms.Button aboutBtn;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label testLabel;
         private System.Windows.Forms.Button connectBtn;

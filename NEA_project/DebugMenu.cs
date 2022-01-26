@@ -34,10 +34,10 @@ namespace NEA_project
             personalise.Show();
         }
 
-        private void settBtn_Click(object sender, EventArgs e)
+        private void aboutBtn_Click(object sender, EventArgs e)
         {
-            SettingsMenu settings = new SettingsMenu();
-            settings.Show();
+            AboutMenu about = new AboutMenu();
+            about.Show();
         }
 
         private void connectBtn_Click(object sender, EventArgs e)

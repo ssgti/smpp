@@ -36,10 +36,10 @@ namespace NEA_project
             predictBox.EndUpdate();
         }
 
-        private void settBtn_Click(object sender, EventArgs e)
+        private void aboutBtn_Click(object sender, EventArgs e)
         {
-            SettingsMenu settings = new SettingsMenu();
-            settings.Show();
+            AboutMenu about = new AboutMenu();
+            about.Show();
         }
 
         private void persBtn_Click(object sender, EventArgs e)
