@@ -24,7 +24,7 @@ namespace NEA_project
             {
                 // database connection
 
-                SQLOperations.sqlSelect("select userID from Users where username = " + username + " and password = " + password);
+                SQLOperations.sqlSelect("select userID from Users where (username = " + username + ") and (password = " + password + ")");
             }
         }
 
