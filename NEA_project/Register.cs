@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NEA_project
@@ -72,6 +73,28 @@ namespace NEA_project
             }
         }
 
+        private int autoIncrementID() // auto increment user IDs because MySQL workbench is being annoying and won't let me
+        {
+            List<string> ids = SQLOperations.sqlSelect("select userID from users");
+            int newID = 1;
+            try
+            {
+                for (int i = 0; i <= ids.Count; i++)
+                {
+                    if (ids[i] == "") // in case of a deleted entry
+                    {
+                        newID = i;
+                    }
+                }
+            }
+            catch
+            {
+                newID = ids.Count + 1;
+            }
+
+            return newID;
+        }
+
         private void createAccount_Click(object sender, EventArgs e)
         {
             string username = usernameBox.Text;
@@ -83,10 +106,12 @@ namespace NEA_project
             bool passwordValid = validatePassword(password);
             bool passMatch = passwordMatch(password, rePassword);
 
+            int ID = autoIncrementID();
+
             if((hasData == true) && (usernameValid == true) && (passwordValid == true) && (passMatch == true))
             {
                 // connect to database
-                SQLOperations.sqlInsert("insert into Users(username, password) values(" + username + ", " + password + ")");
+                SQLOperations.sqlInsert("insert into Users values(" + ID + ", \"" + username + "\", \"" + password + "\")");
             }
         }
     }
