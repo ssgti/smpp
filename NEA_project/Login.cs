@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NEA_project
@@ -24,7 +25,11 @@ namespace NEA_project
             {
                 // database connection
 
-                SQLOperations.sqlSelect("select userID from Users where (username = " + username + ") and (password = " + password + ")");
+                List<string> ID = SQLOperations.sqlSelect("select userID from Users where username = \"" + username + "\" and password = \"" + password + "\"");
+                string userID = ID[0].ToString();
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
+                mainMenu.displayPredictions(userID);
             }
         }
 

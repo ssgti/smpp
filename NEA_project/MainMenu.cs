@@ -9,13 +9,12 @@ namespace NEA_project
         public MainMenu()
         {
             InitializeComponent();
-            // displayPredictions();
         }
 
-        private void displayPredictions() // run the web scraper
+        public void displayPredictions(string userID) // run the web scraper
         {
             predictBox.BeginUpdate();
-            ScraperBot.runScraper();
+            ScraperBot.runScraper(userID);
             predictBox.EndUpdate();
         }
 
