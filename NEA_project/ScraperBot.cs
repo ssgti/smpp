@@ -5,7 +5,7 @@ namespace NEA_project
 {
     class ScraperBot
     {
-        private static void getTriggers(List<Row> titles) // extract trigger words from article titles
+        private static void getTriggers(string userID, List<Row> titles) // extract trigger words from article titles
         {
             List<string> triggers = SQLOperations.sqlSelect("select triggerWord from Triggers");  // make multi-dimensional, include selections
             List<string> names = SQLOperations.sqlSelect("select name from Selections");         // same as above
@@ -34,7 +34,7 @@ namespace NEA_project
             }
         }
 
-        public static void runScraper()
+        public static void runScraper(string userID)
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load("https://uk.finance.yahoo.com"); // data source, add more in future
@@ -46,7 +46,7 @@ namespace NEA_project
                 titles.Add(new Row { title = item.InnerText });
             }
 
-            getTriggers(titles);
+            getTriggers(userID, titles);
         }
 
         public class Row
