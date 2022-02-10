@@ -111,7 +111,7 @@ namespace NEA_project
             if((hasData == true) && (usernameValid == true) && (passwordValid == true) && (passMatch == true))
             {
                 // connect to database
-                SQLOperations.sqlInsert("insert into Users values(" + ID + ", \"" + username + "\", \"" + password + "\")");
+                SQLOperations.sqlExecute("insert into Users values(" + ID + ", \"" + username + "\", \"" + password + "\")");
             }
         }
     }

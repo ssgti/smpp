@@ -40,7 +40,7 @@ namespace NEA_project
             return items; // returns the string to where it was called from
         }
 
-        public static void sqlInsert(string query) // perform insert operation on database
+        public static void sqlExecute(string query) // perform insert operation on database
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             try

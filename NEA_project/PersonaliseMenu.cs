@@ -83,7 +83,7 @@ namespace NEA_project
         {
             // upload user list to database
 
-            SQLOperations.sqlInsert("");
+            SQLOperations.sqlExecute("");
         }
     }
 }
