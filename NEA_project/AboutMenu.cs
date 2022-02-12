@@ -32,7 +32,17 @@ namespace NEA_project
             DialogResult result = MessageBox.Show("Are you sure? This will close the application", "Delete Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                // fetch user id and remove from db, needs delete statement in SQLOperations
+                string userID = user.getUserID();
+                try
+                {
+                    // delete all entries for this user in Users and Selections
+                    SQLOperations.sqlExecute("delete Users, Selections from Users inner join Selections on Selections.userID = Users.userID where Selections.userID = " + userID);
+                }
+                catch
+                {
+                    // if the user has no selections
+                    SQLOperations.sqlExecute("delete from Users where userID = " + userID);
+                }
             }
         }
     }

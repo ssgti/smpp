@@ -59,14 +59,14 @@ namespace NEA_project
             this.aboutBox.Controls.Add(this.nameLabel);
             this.aboutBox.Location = new System.Drawing.Point(12, 51);
             this.aboutBox.Name = "aboutBox";
-            this.aboutBox.Size = new System.Drawing.Size(210, 117);
+            this.aboutBox.Size = new System.Drawing.Size(210, 128);
             this.aboutBox.TabIndex = 1;
             this.aboutBox.TabStop = false;
             this.aboutBox.Text = "About SMPP";
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(104, 88);
+            this.deleteBtn.Location = new System.Drawing.Point(104, 99);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(100, 23);
             this.deleteBtn.TabIndex = 4;
@@ -116,7 +116,7 @@ namespace NEA_project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 180);
+            this.ClientSize = new System.Drawing.Size(234, 191);
             this.Controls.Add(this.aboutBox);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AboutMenu";

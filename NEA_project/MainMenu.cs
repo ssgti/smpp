@@ -14,7 +14,7 @@ namespace NEA_project
         public void displayPredictions() // run the web scraper
         {
             predictBox.BeginUpdate();
-            ScraperBot.runScraper(user.getUserID());
+            ScraperBot.runScraper();
             predictBox.EndUpdate();
         }
 
