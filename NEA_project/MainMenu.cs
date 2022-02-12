@@ -11,10 +11,10 @@ namespace NEA_project
             InitializeComponent();
         }
 
-        public void displayPredictions(string userID) // run the web scraper
+        public void displayPredictions() // run the web scraper
         {
             predictBox.BeginUpdate();
-            ScraperBot.runScraper(userID);
+            ScraperBot.runScraper(user.getUserID());
             predictBox.EndUpdate();
         }
 

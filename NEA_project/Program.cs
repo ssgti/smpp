@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NEA_project
@@ -15,6 +16,21 @@ namespace NEA_project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
+        }
+    }
+
+    public static class user // initialising the user as an object
+    {
+        public static string userID;
+
+        public static void setUserID(string id)
+        {
+            userID = id;
+        }
+
+        public static string getUserID()
+        {
+            return userID;
         }
     }
 }
