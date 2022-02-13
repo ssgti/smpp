@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace NEA_project
         {
             InitializeComponent();
         }
+
         private bool dataEntered(string username, string password, string rePassword) // was data entered?
         {
             if (username == "" || password == "" || rePassword == "")
@@ -95,22 +97,41 @@ namespace NEA_project
             return newID;
         }
 
+        private bool accountExists(string username) // check if details already exist in db
+        {
+            List<string> usrList = SQLOperations.sqlSelect("select username from Users where username = \"" + username + "\"");
+            bool isEmpty = !usrList.Any();
+            if (isEmpty)
+            {
+                return false; // account with this username does not already exist, all good
+            }
+            else
+            {
+                MessageBox.Show("Username " + username + " is not available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true; // account exists
+            }
+        }
+
         private void createAccount_Click(object sender, EventArgs e)
         {
+            // get data from UI
             string username = usernameBox.Text;
             string password = passwordBox.Text;
             string rePassword = rePasswordBox.Text;
 
+            // run validation checks
             bool hasData = dataEntered(username, password, rePassword);
             bool usernameValid = validateUsername(username);
             bool passwordValid = validatePassword(password);
             bool passMatch = passwordMatch(password, rePassword);
+            bool exists = accountExists(username);
 
+            // get new userID
             int ID = autoIncrementID();
 
-            if((hasData == true) && (usernameValid == true) && (passwordValid == true) && (passMatch == true))
+            // create account if conditions are met
+            if((hasData == true) && (usernameValid == true) && (passwordValid == true) && (passMatch == true) && (exists == false))
             {
-                // connect to database
                 SQLOperations.sqlExecute("insert into Users values(" + ID + ", \"" + username + "\", \"" + password + "\")");
             }
         }
