@@ -130,7 +130,7 @@ namespace NEA_project
             int ID = autoIncrementID();
 
             // create account if conditions are met
-            if((hasData == true) && (usernameValid == true) && (passwordValid == true) && (passMatch == true) && (exists == false))
+            if(hasData && usernameValid && passwordValid && passMatch && !exists)
             {
                 SQLOperations.sqlExecute("insert into Users values(" + ID + ", \"" + username + "\", \"" + password + "\")");
             }
