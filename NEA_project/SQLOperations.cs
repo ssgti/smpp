@@ -26,10 +26,9 @@ namespace NEA_project
 
                 while (rdr.Read())
                 {
-                    items.Add(rdr.ToString()); // read data and add each item to a string
+                    items.Add(rdr.GetString(0)); // read data and add each item to a string
                 }
                 rdr.Close();
-                
             }
             catch (Exception ex)
             {

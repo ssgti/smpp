@@ -24,11 +24,10 @@ namespace NEA_project
             else
             {
                 List<string> ID = SQLOperations.sqlSelect("select userID from Users where username = \"" + username + "\" and password = \"" + password + "\"");
-                string id = ID[0].ToString();
-                user.setUserID(id); // set the user's id in the user object
+                string userID = ID[0].ToString();
+                user.setUserID(userID); // set the user's id in the user object
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.Show();
-                // mainMenu.displayPredictions(userID);
             }
         }
 
