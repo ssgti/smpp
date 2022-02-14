@@ -33,16 +33,19 @@ namespace NEA_project
             if (result == DialogResult.Yes)
             {
                 var userID = user.getUserID();
+                SQLOperations.sqlExecute("delete from Users where userID = \"" + userID + "\"");
+                /*
                 try
                 {
                     // delete all entries for this user in Users and Selections
-                    SQLOperations.sqlExecute("delete Users, Selections from Users inner join Selections on Selections.userID = Users.userID where Selections.userID = \"" + userID + "\"");
+                    SQLOperations.sqlExecute("delete Users, Selections from Users inner join Selections on Selections.userID = Users.userID where Users.userID = \"" + userID + "\"");
                 }
                 catch
                 {
                     // if the user has no selections
                     SQLOperations.sqlExecute("delete from Users where userID = \"" + userID + "\"");
                 }
+                */
             }
         }
     }
