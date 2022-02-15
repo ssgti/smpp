@@ -46,7 +46,14 @@ namespace NEA_project
                 }
                 if (exists == false) // add item if it is not already in selectedList
                 {
-                    selectedList.Items.Add(selectionList.SelectedItems[i].ToString());
+                    try
+                    {
+                        selectedList.Items.Add(selectionList.SelectedItems[i].ToString());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No items selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 exists = false;
                 i++;
