@@ -38,8 +38,8 @@ namespace NEA_project
         public static List<string> runScraper()
         {
             HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = web.Load("https://uk.finance.yahoo.com"); // data source, add more in future
-            var headerNames = doc.DocumentNode.SelectNodes("//h3[@class='Mb(5px)']");
+            HtmlDocument doc = web.Load("https://uk.finance.yahoo.com"); // data source
+            var headerNames = doc.DocumentNode.SelectNodes("//h3[@class='Mb(5px)']"); // HTML class that holds article titles
 
             var titles = new List<Row>();
             List<string> uiTitles = new List<string>();
@@ -50,7 +50,7 @@ namespace NEA_project
             }
 
             getTriggers(titles);
-            return uiTitles;
+            return uiTitles; // for articleBox
         }
 
         public class Row
