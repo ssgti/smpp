@@ -35,19 +35,22 @@ namespace NEA_project
             }
         }
 
-        public static void runScraper()
+        public static List<string> runScraper()
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load("https://uk.finance.yahoo.com"); // data source, add more in future
-            var headerNames = doc.DocumentNode.SelectNodes("");
+            var headerNames = doc.DocumentNode.SelectNodes("//h3[@class='Mb(5px)']");
 
             var titles = new List<Row>();
+            List<string> uiTitles = new List<string>();
             foreach (var item in headerNames)
             {
                 titles.Add(new Row { title = item.InnerText });
+                uiTitles.Add(item.InnerText);
             }
 
             getTriggers(titles);
+            return uiTitles;
         }
 
         public class Row
