@@ -36,7 +36,7 @@ namespace NEA_project
             this.predictGroupBox = new System.Windows.Forms.GroupBox();
             this.predictBox = new System.Windows.Forms.ListBox();
             this.newsGroupBox = new System.Windows.Forms.GroupBox();
-            this.articleBox = new System.Windows.Forms.ListBox();
+            this.articleBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.predictGroupBox.SuspendLayout();
             this.newsGroupBox.SuspendLayout();
@@ -106,12 +106,11 @@ namespace NEA_project
             // 
             this.articleBox.BackColor = System.Drawing.SystemColors.Menu;
             this.articleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.articleBox.FormattingEnabled = true;
-            this.articleBox.ItemHeight = 15;
-            this.articleBox.Location = new System.Drawing.Point(7, 23);
+            this.articleBox.Location = new System.Drawing.Point(6, 23);
             this.articleBox.Name = "articleBox";
-            this.articleBox.Size = new System.Drawing.Size(142, 345);
-            this.articleBox.TabIndex = 0;
+            this.articleBox.Size = new System.Drawing.Size(143, 356);
+            this.articleBox.TabIndex = 1;
+            this.articleBox.Text = "";
             // 
             // MainMenu
             // 
@@ -140,7 +139,7 @@ namespace NEA_project
         private System.Windows.Forms.GroupBox predictGroupBox;
         private System.Windows.Forms.ListBox predictBox;
         private System.Windows.Forms.GroupBox newsGroupBox;
-        private System.Windows.Forms.ListBox articleBox;
+        private System.Windows.Forms.RichTextBox articleBox;
     }
 }
 

@@ -9,24 +9,23 @@ namespace NEA_project
         public MainMenu()
         {
             InitializeComponent();
+            displayPredictions();
         }
 
         public void displayPredictions() // run the web scraper
         {
             predictBox.BeginUpdate();
-            ScraperBot.runScraper();
+            List<string> titles = ScraperBot.runScraper(); // run web scraper, and return article titles for news feed
             predictBox.EndUpdate();
+            initNewsFeed(titles);
         }
 
-        public void initNewsFeed(List<string> titles) // fill the news feed with articles used by web scraper
+        private void initNewsFeed(List<string> titles) // fill the news feed with articles used by web scraper
         {
-            // this is not called anywhere yet
-            articleBox.BeginUpdate();
             for (int i = 0; i < titles.Count; i++)
             {
-                articleBox.Items.Add(titles[i]);
+                articleBox.AppendText(titles[i] + " \n\n"); // each article separated by an empty line
             }
-            articleBox.EndUpdate();
         }
 
         private void aboutBtn_Click(object sender, EventArgs e)
