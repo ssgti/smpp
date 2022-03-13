@@ -3,4 +3,4 @@ software that aims to create educated guesses of stock performance based on curr
 
 currently unfinished and in development
 
-***// disclaimer - this software is a proof-of-concept, and should not be used as the basis for actual trading decisions. i accept no responsibility for money lost due to trades made because of this software.***
+***// disclaimer - this software is a proof-of-concept, and should not be used as the basis for actual trading decisions. I accept no responsibility for money lost due to trades made because of this software.***
