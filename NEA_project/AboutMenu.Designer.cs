@@ -79,9 +79,9 @@ namespace NEA_project
             this.idiotLabel.AutoSize = true;
             this.idiotLabel.Location = new System.Drawing.Point(7, 53);
             this.idiotLabel.Name = "idiotLabel";
-            this.idiotLabel.Size = new System.Drawing.Size(104, 15);
+            this.idiotLabel.Size = new System.Drawing.Size(43, 15);
             this.idiotLabel.TabIndex = 3;
-            this.idiotLabel.Text = "by William George";
+            this.idiotLabel.Text = "by Will";
             // 
             // repoLabel
             // 
