@@ -26,7 +26,7 @@ namespace NEA_project
                 }
             }
 
-            for (int i = 0; i < names.Count; i++)
+            for (int i = 1; i < names.Count; i++)
             {
                 if (detectedTriggers[i] != "")
                 {
