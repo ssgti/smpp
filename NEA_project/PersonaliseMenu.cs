@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NEA_project
@@ -8,25 +9,34 @@ namespace NEA_project
         public PersonaliseMenu()
         {
             InitializeComponent();
+            getSelections();
             updateList();
-            // initList();
         }
 
-        private void initList() // arbritrary test data generator IT WORKS YOU DON'T NEED THIs
+        private void getSelections()
         {
-            selectionList.BeginUpdate();
-            for(int i = 0; i < 50; i++)
+            // fill selected list from database
+
+            List<string> selections = SQLOperations.sqlSelect("select name from Selections");
+            selectedList.BeginUpdate();
+            for (int i = 0; i < selections.Count; i++)
             {
-                selectionList.Items.Add("Item " + (i + 1));
+                selectedList.Items.Add(selections[i]);
             }
-            selectionList.EndUpdate();
+            selectedList.EndUpdate();
         }
 
         private void updateList()
         {
             // fill selection list from database
 
-            SQLOperations.sqlSelect("select name from Financial");
+            List<string> names = SQLOperations.sqlSelect("select name from Financial");
+            selectionList.BeginUpdate();
+            for (int i = 0; i < names.Count; i++)
+            {
+                selectionList.Items.Add(names[i]);
+            }
+            selectionList.EndUpdate();
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -37,24 +47,25 @@ namespace NEA_project
             selectedList.BeginUpdate();
             do
             {
-                for(int x = 0; x < selectedList.Items.Count; x++) // checks if the item to be added is already in selectedList
+                try
                 {
-                    if(selectionList.SelectedItems[i] == selectedList.Items[x])
+                    for (int x = 0; x < selectedList.Items.Count; x++) // checks if the item to be added is already in selectedList
                     {
-                        exists = true;
+                        if(selectionList.SelectedItems[i].ToString() == selectedList.Items[x].ToString())
+                        {
+                            exists = true;
+                        }
                     }
-                }
-                if (exists == false) // add item if it is not already in selectedList
-                {
-                    try
+                    if (!exists) // add item if it is not already in selectedList
                     {
                         selectedList.Items.Add(selectionList.SelectedItems[i].ToString());
                     }
-                    catch
-                    {
-                        MessageBox.Show("No items selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
                 }
+                catch
+                {
+                    MessageBox.Show("No items selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 exists = false;
                 i++;
             } while (i < selectionList.SelectedItems.Count); // do this for every selected item in selectionList
@@ -69,7 +80,7 @@ namespace NEA_project
             {
                 for(int x = 0; x < selectedList.Items.Count; x++)
                 {
-                    if(selectionList.SelectedItems[i] == selectedList.Items[x])
+                    if(selectionList.SelectedItems[i].ToString() == selectedList.Items[x].ToString())
                     {
                         selectedList.Items.RemoveAt(x); // if items match, remove the entry in selectedList
                     }
@@ -90,7 +101,11 @@ namespace NEA_project
         {
             // upload user list to database
 
-            SQLOperations.sqlExecute("");
+            SQLOperations.sqlExecute("truncate table selections");
+            for (int x = 0; x < selectedList.Items.Count; x++)
+            {
+                SQLOperations.sqlExecute("insert into selections(selectionID, name) values(" + x + ", \"" + selectedList.Items[x].ToString() + "\")");
+            }
         }
     }
 }
