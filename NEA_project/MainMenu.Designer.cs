@@ -29,27 +29,16 @@ namespace NEA_project
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
-            this.logoBox = new System.Windows.Forms.PictureBox();
             this.aboutBtn = new System.Windows.Forms.Button();
             this.persBtn = new System.Windows.Forms.Button();
             this.predictGroupBox = new System.Windows.Forms.GroupBox();
             this.predictBox = new System.Windows.Forms.ListBox();
             this.newsGroupBox = new System.Windows.Forms.GroupBox();
             this.articleBox = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
+            this.logoLabel = new System.Windows.Forms.Label();
             this.predictGroupBox.SuspendLayout();
             this.newsGroupBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // logoBox
-            // 
-            this.logoBox.Image = ((System.Drawing.Image)(resources.GetObject("logoBox.Image")));
-            this.logoBox.Location = new System.Drawing.Point(13, 13);
-            this.logoBox.Name = "logoBox";
-            this.logoBox.Size = new System.Drawing.Size(211, 31);
-            this.logoBox.TabIndex = 0;
-            this.logoBox.TabStop = false;
             // 
             // aboutBtn
             // 
@@ -112,34 +101,43 @@ namespace NEA_project
             this.articleBox.TabIndex = 1;
             this.articleBox.Text = "";
             // 
+            // logoLabel
+            // 
+            this.logoLabel.AutoSize = true;
+            this.logoLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.logoLabel.Location = new System.Drawing.Point(13, 9);
+            this.logoLabel.Name = "logoLabel";
+            this.logoLabel.Size = new System.Drawing.Size(71, 30);
+            this.logoLabel.TabIndex = 3;
+            this.logoLabel.Text = "SMPP";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 441);
+            this.Controls.Add(this.logoLabel);
             this.Controls.Add(this.newsGroupBox);
             this.Controls.Add(this.predictGroupBox);
             this.Controls.Add(this.persBtn);
             this.Controls.Add(this.aboutBtn);
-            this.Controls.Add(this.logoBox);
             this.Name = "MainMenu";
-            this.Text = "Main Menu";
-            ((System.ComponentModel.ISupportInitialize)(this.logoBox)).EndInit();
+            this.Text = "SMPP - Stock Market Prediction Project";
             this.predictGroupBox.ResumeLayout(false);
             this.newsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.Button aboutBtn;
         private System.Windows.Forms.Button persBtn;
         private System.Windows.Forms.GroupBox predictGroupBox;
         private System.Windows.Forms.ListBox predictBox;
         private System.Windows.Forms.GroupBox newsGroupBox;
         private System.Windows.Forms.RichTextBox articleBox;
+        private System.Windows.Forms.Label logoLabel;
     }
 }
 

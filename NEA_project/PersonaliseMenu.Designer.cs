@@ -29,7 +29,6 @@ namespace NEA_project
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonaliseMenu));
             this.selectBox = new System.Windows.Forms.GroupBox();
             this.predictLabel2 = new System.Windows.Forms.Label();
             this.selectionList = new System.Windows.Forms.ListBox();
@@ -38,11 +37,10 @@ namespace NEA_project
             this.addBtn = new System.Windows.Forms.Button();
             this.selectedList = new System.Windows.Forms.ListBox();
             this.predictLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.logoLabel = new System.Windows.Forms.Label();
             this.selectBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // selectBox
@@ -131,15 +129,6 @@ namespace NEA_project
             this.predictLabel.TabIndex = 1;
             this.predictLabel.Text = "Select stocks and commodities from the list below.";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 35);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // saveBtn
             // 
             this.saveBtn.Location = new System.Drawing.Point(537, 12);
@@ -159,27 +148,36 @@ namespace NEA_project
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             // 
+            // logoLabel
+            // 
+            this.logoLabel.AutoSize = true;
+            this.logoLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.logoLabel.Location = new System.Drawing.Point(12, 9);
+            this.logoLabel.Name = "logoLabel";
+            this.logoLabel.Size = new System.Drawing.Size(71, 30);
+            this.logoLabel.TabIndex = 8;
+            this.logoLabel.Text = "SMPP";
+            // 
             // PersonaliseMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 361);
+            this.Controls.Add(this.logoLabel);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.selectBox);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "PersonaliseMenu";
             this.Text = "Personalise";
             this.selectBox.ResumeLayout(false);
             this.selectBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.GroupBox selectBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label predictLabel;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button cancelBtn;
@@ -189,5 +187,6 @@ namespace NEA_project
         private System.Windows.Forms.ListBox selectedList;
         private System.Windows.Forms.ListBox selectionList;
         private System.Windows.Forms.Label predictLabel2;
+        private System.Windows.Forms.Label logoLabel;
     }
 }
