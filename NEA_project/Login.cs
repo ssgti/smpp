@@ -21,13 +21,24 @@ namespace NEA_project
                 DebugMenu debug = new DebugMenu();
                 debug.Show();
             }
+            else if (username == "" || password == "")
+            {
+                MessageBox.Show("Please enter an username and password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                List<string> ID = SQLOperations.sqlSelect("select userID from Users where username = \"" + username + "\" and password = \"" + password + "\"");
-                string userID = ID[0].ToString();
-                user.setUserID(userID); // set the user's id in the user object
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.Show();
+                try
+                {
+                    List<string> ID = SQLOperations.sqlSelect("select userID from Users where username = \"" + username + "\" and password = \"" + password + "\"");
+                    string userID = ID[0].ToString();
+                    user.setUserID(userID); // set the user's id in the user object
+                    MainMenu mainMenu = new MainMenu();
+                    mainMenu.Show();
+                }
+                catch
+                {
+                    MessageBox.Show("Account does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
