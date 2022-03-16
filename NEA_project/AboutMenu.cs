@@ -32,20 +32,22 @@ namespace NEA_project
             DialogResult result = MessageBox.Show("Are you sure? This will close the application", "Delete Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                var userID = user.getUserID();
-                SQLOperations.sqlExecute("delete from Users where userID = \"" + userID + "\"");
-                /*
+                var userID = user.getUserID();                
+                
                 try
                 {
                     // delete all entries for this user in Users and Selections
-                    SQLOperations.sqlExecute("delete Users, Selections from Users inner join Selections on Selections.userID = Users.userID where Users.userID = \"" + userID + "\"");
+                    SQLOperations.sqlExecute("set foreign_key_checks = 0;"); // for deletion
+                    SQLOperations.sqlExecute("delete Users, Selections from Users inner join Selections on Selections.userID = Users.userID where Selections.userID = \"" + userID + "\"");
+                    SQLOperations.sqlExecute("set foreign_key_checks = 1;");
                 }
                 catch
                 {
-                    // if the user has no selections
+                    // if the user has no selections - i do not know if this code is necessary
                     SQLOperations.sqlExecute("delete from Users where userID = \"" + userID + "\"");
                 }
-                */
+
+                Application.Exit();
             }
         }
     }
