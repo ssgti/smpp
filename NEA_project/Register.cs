@@ -75,28 +75,6 @@ namespace NEA_project
             }
         }
 
-        private int autoIncrementID() // auto increment user IDs because MySQL workbench is being annoying and won't let me
-        {
-            List<string> ids = SQLOperations.sqlSelect("select userID from users");
-            int newID = 1;
-            try
-            {
-                for (int i = 0; i <= ids.Count; i++)
-                {
-                    if (ids[i] == "") // in case of a deleted entry
-                    {
-                        newID = i;
-                    }
-                }
-            }
-            catch
-            {
-                newID = ids.Count + 1;
-            }
-
-            return newID;
-        }
-
         private bool accountExists(string username) // check if details already exist in db
         {
             List<string> usrList = SQLOperations.sqlSelect("select username from Users where username = \"" + username + "\"");
@@ -127,12 +105,13 @@ namespace NEA_project
             bool exists = accountExists(username);
 
             // get new userID
-            int ID = autoIncrementID();
+            int ID = SQLOperations.autoIncrementID("userID", "users"); // get an automatically incremented ID
 
             // create account if conditions are met
             if(hasData && usernameValid && passwordValid && passMatch && !exists)
             {
                 SQLOperations.sqlExecute("insert into Users values(" + ID + ", \"" + username + "\", \"" + password + "\")");
+                MessageBox.Show("Account created successfully\nYou may now log in", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
