@@ -56,5 +56,27 @@ namespace NEA_project
             conn.Close();
         }
 
+        public static int autoIncrementID(string row, string table) // auto increment user IDs because MySQL workbench is being annoying and won't let me
+        {
+            List<string> ids = SQLOperations.sqlSelect("select " + row + " from " + table); // row and table passed as args
+            int newID = 1;
+            try
+            {
+                for (int i = 0; i <= ids.Count; i++)
+                {
+                    if (ids[i] == "") // in case of a deleted entry
+                    {
+                        newID = i;
+                    }
+                }
+            }
+            catch
+            {
+                newID = ids.Count + 1;
+            }
+
+            return newID;
+        }
+
     }
 }
