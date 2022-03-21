@@ -27,18 +27,11 @@ namespace NEA_project
             }
             else
             {
-                try
-                {
-                    List<string> ID = SQLOperations.sqlSelect("select userID from Users where username = \"" + username + "\" and password = \"" + password + "\"");
-                    string userID = ID[0].ToString();
-                    user.setUserID(userID); // set the user's id in the user object
-                    MainMenu mainMenu = new MainMenu();
-                    mainMenu.Show();
-                }
-                catch
-                {
-                    MessageBox.Show("Account does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                List<string> ID = SQLOperations.sqlSelect("select userID from Users where username = \"" + username + "\" and password = \"" + password + "\"");
+                string userID = ID[0].ToString();
+                user.setUserID(userID); // set the user's id in the user object
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
             }
         }
 
