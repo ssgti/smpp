@@ -14,8 +14,14 @@ namespace NEA_project
 
         public void displayPredictions() // run the web scraper
         {
+            var data = ScraperBot.runScraper();
+            List<string> predicts = data.Item1;
+            List<string> titles = data.Item2;
             predictBox.BeginUpdate();
-            List<string> titles = ScraperBot.runScraper(); // run web scraper, and return article titles for news feed
+            for (int i = 0; i < predicts.Count; i++)
+            {
+                predictBox.Items.Add(predicts[i].ToString());
+            }
             predictBox.EndUpdate();
             initNewsFeed(titles);
         }

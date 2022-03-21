@@ -72,13 +72,13 @@ namespace NEA_project
             // 
             // predictBox
             // 
-            this.predictBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.predictBox.Font = new System.Drawing.Font("Lucida Sans Typewriter", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.predictBox.FormattingEnabled = true;
-            this.predictBox.ItemHeight = 21;
+            this.predictBox.ItemHeight = 17;
             this.predictBox.Location = new System.Drawing.Point(7, 23);
             this.predictBox.Name = "predictBox";
             this.predictBox.ScrollAlwaysVisible = true;
-            this.predictBox.Size = new System.Drawing.Size(585, 340);
+            this.predictBox.Size = new System.Drawing.Size(585, 310);
             this.predictBox.TabIndex = 0;
             // 
             // newsGroupBox
@@ -95,6 +95,7 @@ namespace NEA_project
             // 
             this.articleBox.BackColor = System.Drawing.SystemColors.Menu;
             this.articleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.articleBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.articleBox.Location = new System.Drawing.Point(6, 23);
             this.articleBox.Name = "articleBox";
             this.articleBox.Size = new System.Drawing.Size(143, 356);
