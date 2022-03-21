@@ -5,41 +5,44 @@ namespace NEA_project
 {
     class ScraperBot
     {
-        private static void getTriggers(List<Row> titles) // extract trigger words from article titles
-        {
+        private static List<string> getTriggers(List<Row> titles) // extract trigger words from article titles
+        {   
             string userID = user.getUserID();
-            List<string> triggers = SQLOperations.sqlSelect("select triggerWord from Triggers");  // make multi-dimensional, include selections
-            List<string> names = SQLOperations.sqlSelect("select name from Selections where userID = \"" + userID + "\"");
+            List<string> triggers = SQLOperations.sqlSelect("select triggers.triggerWord from triggers inner join financial on triggers.financialID = financial.financialID inner join selections on financial.financialID = selections.financialID where selections.userID = \"" + userID + "\"");
+            List<string> names = SQLOperations.sqlSelect("select name from Selections where userID = \"" + userID + "\""); // would make this one query but i need names and triggers separately
             List<string> detectedTriggers = new List<string>();
-            triggers.ToArray();
-            names.ToArray();
-            detectedTriggers.ToArray();
 
-            for (int x = 0; x < titles.Count; x++)
+            for (int x = 0; x <= titles.Count; x++)
             {
-                for (int y = 0; y < triggers.Count; y++)
+                for (int y = 0; y <= triggers.Count; y++)
                 {
-                    if (titles[x].ToString().Contains(triggers[y].ToString())) // if the title contains a trigger word
+                    System.Windows.Forms.MessageBox.Show(x.ToString() + " " + y.ToString());
+                    string title = titles[x].ToString();
+                    string trigger = triggers[y].ToString();
+                    if (title.Contains(trigger)) // if the title contains a trigger word
                     {
-                        detectedTriggers[y] = triggers[y];
+                        detectedTriggers[y] = triggers[y].ToString();
                     }
                 }
             }
 
-            for (int i = 1; i < names.Count; i++)
+            List<string> predicts = new List<string>();
+
+            for (int i = 0; i <= names.Count; i++)
             {
-                if (detectedTriggers[i] != "")
+                if (detectedTriggers[i] != null)
                 {
-                    Predictions.getPredicts(names[i].ToString());
+                    predicts.Add(Predictions.getPredicts(names[i].ToString(), detectedTriggers[i].ToString())); // generate predictions for each item and trigger
                 }
             }
+            return predicts;
         }
 
-        public static List<string> runScraper()
+        public static (List<string>, List<string>) runScraper()
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load("https://uk.finance.yahoo.com"); // data source
-            var headerNames = doc.DocumentNode.SelectNodes("//h3[@class='Mb(5px)']"); // HTML class that holds article titles
+            var headerNames = doc.DocumentNode.SelectNodes("//h2[@class='Mt(0) Td(u):h Mb(13px) Fz(24px)!--miw1100 Fz(18px) LineClamp(4,5.3em) Lh(1.15)']"); // HTML class that holds article titles
 
             var titles = new List<Row>();
             List<string> uiTitles = new List<string>();
@@ -49,8 +52,8 @@ namespace NEA_project
                 uiTitles.Add(item.InnerText);
             }
 
-            getTriggers(titles);
-            return uiTitles; // for articleBox
+            List<string> predicts = getTriggers(titles);
+            return (predicts, uiTitles);
         }
 
         public class Row
