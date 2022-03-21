@@ -1,7 +1,7 @@
 # SMPP/Stock Market Prediction Project
 software that aims to create educated guesses of stock performance based on current news events and past financial data, created for my computer science A level NEA
 
-currently unfinished and in development but I'm expecting to have a first version out within this week
+currently unfinished and in development
 
 this program is set up to use a database that is hosted locally on my PC, if you wish to run this in it's current state you will need to create a MySQL database using the db.mwb file and edit the connection strings accordingly
 
